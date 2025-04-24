@@ -23,26 +23,28 @@ export default function MagicCity() {
   const [data, setData] = useState([])
   const name = useParams();
   async function getData(city) {
-    try {
-      let { data } = await axios.get("/api/bricks?city=" + city)
-      console.log(data)
-      setData(data)
-    } catch (error) {
-      console.log(error);
+    if (city !== undefined) {
 
+      try {
+        let { data } = await axios.get("/api/bricks?city=" + city)
+        console.log(data)
+        setData(data)
+      } catch (error) {
+        console.log(error);
+
+      }
     }
+
+
   }
   useEffect(() => {
     getData(name?.cityName)
-
-
-
   }, [name])
 
 
   return (
     <>
-      <div className="container">
+      <div className="container-fluid p-5">
         <div className="row gy-4">
           {data && data.map((item) => {
             return (
@@ -57,7 +59,7 @@ export default function MagicCity() {
 
 
 
-      
+
     </>
 
   );
