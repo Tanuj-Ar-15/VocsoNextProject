@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-card{
+  min-height: 500px;
+  max-height: 800px;
+}
+
+.main-card  img {
+  height: 250px;
+}
